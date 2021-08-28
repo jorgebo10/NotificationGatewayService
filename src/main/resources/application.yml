@@ -1,0 +1,40 @@
+server:
+  port: 8083
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username:
+    password:
+    port: 587
+    protocol: smtp
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  application:
+    name: NotificationGatewayServices
+  config:
+    import: optional:consul:localhost:8500
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: /api/notifications/gateway/healthcheck
+        healthCheckInterval: 20s
+  zipkin:
+    baseUrl: http://localhost:9411
+twilio:
+  username:
+  password:
+  fromPhoneNumber:
+emil:
+  from:
+
