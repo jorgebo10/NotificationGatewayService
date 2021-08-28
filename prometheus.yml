@@ -1,6 +1,6 @@
 # my global config
 global:
-  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
 
@@ -17,10 +17,25 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-      - targets: ['192.168.1.102:9090']
+      - targets: [ '192.168.1.102:9090' ]
 
-  - job_name: 'spring-actuator'
+  - job_name: 'api-gateway'
     metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
     static_configs:
-      - targets: ['192.168.1.102:8080', '192.168.1.102:8081','192.168.1.102:8082', '192.168.1.102:8083', '192.168.1.102:8084']
+      - targets: [ 'NotificationAPIGatewayService:8080' ]
+  - job_name: 'preferences'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'NotificationPreferencesServices:8081' ]
+  - job_name: 'template'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'NotificationTemplateServices:8082' ]
+  - job_name: 'gateway'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'NotificationGatewayServices:8083' ]
+  - job_name: 'application'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'NotificationApplicationServices:8084' ]
