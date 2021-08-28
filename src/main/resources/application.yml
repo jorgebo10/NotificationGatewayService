@@ -7,8 +7,8 @@ spring:
   mail:
     default-encoding: UTF-8
     host: smtp.gmail.com
-    username:
-    password:
+    username: jorgebo10
+    password: ryfypfjsgxxgojcu
     port: 587
     protocol: smtp
     test-connection: false
@@ -35,8 +35,14 @@ spring:
   zipkin:
     baseUrl: http://localhost:9411
 twilio:
-  username:
-  password:
-  fromPhoneNumber:
+  username: AC43016ecf7ce9e3e7c1fb5712f5c2b487
+  password: 892ba9f62c225b2c8685552dbb92c148
+  fromPhoneNumber: +1520866013
 emil:
-  from:
+  from: jorgebo10@gmail.com
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+    enabled-by-default: true
