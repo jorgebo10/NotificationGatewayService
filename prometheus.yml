@@ -22,20 +22,20 @@ scrape_configs:
   - job_name: 'api-gateway'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: [ 'NotificationAPIGatewayService:8080' ]
+      - targets: [ '192.168.1.102:8080' ]
   - job_name: 'preferences'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: [ 'NotificationPreferencesServices:8081' ]
+      - targets: [ '192.168.1.102:8081' ]
   - job_name: 'template'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: [ 'NotificationTemplateServices:8082' ]
+      - targets: [ '192.168.1.102:8082' ]
   - job_name: 'gateway'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: [ 'NotificationGatewayServices:8083' ]
+      - targets: [ '192.168.1.102:8083' ]
   - job_name: 'application'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: [ 'NotificationApplicationServices:8084' ]
+      - targets: [ '192.168.1.102:8084' ]
